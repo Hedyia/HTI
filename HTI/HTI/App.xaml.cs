@@ -10,7 +10,7 @@ namespace HTI
 	{
 		public App ()
 		{
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ODUyOUAzMTM2MmUzMjJlMzBucXBkSXJpQWVDTWRKS014VncweENYdmlJMnhxTE9Ba3VBWkpiTmUySjJ3PQ==");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("key");
             InitializeComponent();
             
             MainPage = new NavigationPage(new Views.LoginView());
