@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HTI.Views.PlayListView"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Icon="ic_play_arrow">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding playList}">
+            <WebView Source="{Binding PlayListUrl}"
+                     HeightRequest="1000"
+                     WidthRequest="1000"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,3 +1,4 @@
+using DLToolkit.Forms.Controls;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,10 +10,12 @@ namespace HTI
 	{
 		public App ()
 		{
-			InitializeComponent();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ODUyOUAzMTM2MmUzMjJlMzBucXBkSXJpQWVDTWRKS014VncweENYdmlJMnhxTE9Ba3VBWkpiTmUySjJ3PQ==");
+            InitializeComponent();
+            
+            MainPage = new NavigationPage(new Views.LoginView());
 
-			MainPage = new MainPage();
-		}
+        }
 
 		protected override void OnStart ()
 		{

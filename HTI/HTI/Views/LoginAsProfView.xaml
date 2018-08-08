@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HTI.Views.LoginAsProfView"
+              BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Title="Prof Login">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding LoginAsProf}">
+            <StackLayout
+            Padding="20">
+                <Image 
+                Source="HTI"
+                WidthRequest="200"/>
+                <Grid
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label
+                Text="Email"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    VerticalTextAlignment="Center"/>
+                    <Entry
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Placeholder="Enter your email..."
+                     Text="{Binding Email, Mode=TwoWay}"   
+                    FontSize="Medium"
+                    Keyboard="Email"/>
+
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Password"
+                    VerticalTextAlignment="Center"/>
+                    <Entry
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Placeholder="Enter your password..."
+                    Text="{Binding Password, Mode=TwoWay}"    
+                    FontSize="Medium"
+                    IsPassword="True" />
+                </Grid>
+
+                <StackLayout
+                Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Label 
+                Text="Remeber me?"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="StartAndExpand"/>
+                    <Switch
+                    IsToggled="{Binding IsRemebered, Mode=TwoWay}"    
+                    HorizontalOptions="End" />
+                </StackLayout>
+                <StackLayout
+                Margin="20,0"
+                    Orientation="Vertical"
+                    VerticalOptions="FillAndExpand">
+                    <Button     
+                    HeightRequest="50"
+                    Text="Login"
+                    TextColor="White"
+                    BackgroundColor="Navy"
+                    BorderRadius="15"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding LoginCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

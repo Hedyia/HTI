@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localViewModel="clr-namespace:HTI.ViewModels"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             x:Class="HTI.Views.PdfCourseViewer"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Icon="ic_picture_as_pdf">
+    <ContentPage.Content>
+        <Grid BindingContext="{Binding pdfCourseViewer}">
+            <syncfusion:SfPdfViewer AllowHyperlinkNavigation="True" InputFileStream="{Binding PdfDocumentStream}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
