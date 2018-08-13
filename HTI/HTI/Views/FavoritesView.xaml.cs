@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HTI.Models;
+using HTI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +18,11 @@ namespace HTI.Views
 		{
 			InitializeComponent ();
 		}
-	}
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var course = e.SelectedItem as Course;
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.SelectCourse(course);
+        }
+    }
 }

@@ -23,9 +23,9 @@
 
 
             <!-- STYLES -->
-            <Style TargetType="NavigationPage">
+            <!--<Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource BlackColor}" />
-            </Style>
+            </Style>-->
         </ResourceDictionary>
 	</Application.Resources>
 </Application>

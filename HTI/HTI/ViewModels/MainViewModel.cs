@@ -15,13 +15,17 @@ namespace HTI.ViewModels
         public PlayListViewModel playList { get; set; }
         public LoginAsProfViewModel ProfLogin { get; set; }
         public ProfCoursesListViewModel ProfPage { get; set; }
-        
+        public FavoritesViewModel Favorites { get; set; }
+        public UserProfileViewModel UserProfile { get; set; }
+        public CoursesSpecialistViewModel CourseSpecialist { get; set; }
+
         public ObservableCollection<Menu> MyMenu { get; set; }
         public MainViewModel()
         {
             Login = new LoginViewModel();
             Registration = new RegisterViewModel();
             _staticMainView = this;
+            MyMenu = new ObservableCollection<Menu>();
             LoadMenu();
         }
 
@@ -29,9 +33,9 @@ namespace HTI.ViewModels
         {
             MyMenu.Add(new Menu
             {
-                Title = "My Profile",
+                Title = "Department",
                 Icon = "ic_settings",
-                PageName = "UserProfileView"
+                PageName = "CoursesSpecialist"
             });
             MyMenu.Add(new Menu
             {
@@ -41,7 +45,7 @@ namespace HTI.ViewModels
             });
             MyMenu.Add(new Menu
             {
-                Title = "My Profile",
+                Title = "Logout",
                 Icon = "ic_exit_to_app",
                 PageName = "LoginView"
             });

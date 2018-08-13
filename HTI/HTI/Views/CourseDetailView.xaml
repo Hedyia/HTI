@@ -9,7 +9,7 @@
                      BindingContext="{Binding CourseDetail}">
             <Image Source="{Binding Course.Image}"/>
             <Label Text="{Binding Course.CourseName}"  FontSize="28" FontAttributes="Bold" TextColor="Black"/>
-            <Label Text ="{Binding Course.ProfName}" FontSize="16" FontAttributes="Bold" TextColor="Black" />
+            <Label Text ="{Binding Course.ProfName, StringFormat='Dr: {0}'}" FontSize="16" FontAttributes="Bold" TextColor="Black" />
             <Label Text="{Binding Course.Units}" FontSize="16" FontAttributes="Bold" TextColor="Black" />
             <Label Text="{Binding Course.CourseDescription}" FontSize="14" FontAttributes="Bold" TextColor="Black" />
             <Button BackgroundColor="#008080" TextColor="White" Text="{Binding ButtonText}"

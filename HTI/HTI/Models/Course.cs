@@ -1,6 +1,8 @@
-﻿namespace HTI.Models
+﻿using SQLite;
+
+namespace HTI.Models
 {
-    public class Course
+    public class Course : BaseItem
     {
         public string CourseId { get; set; }
         public string CourseName { get; set; }

@@ -1,4 +1,11 @@
-﻿using HTI.Views;
+﻿using HTI.Models;
+using HTI.Persistence;
+using HTI.Views;
+using SQLite;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -10,6 +17,8 @@ namespace HTI.ViewModels
         private string _email;
         private string _password;
         private bool _isRemembered;
+        private SQLiteAsyncConnection _database;
+        private Task<List<Student>> users;
         #endregion
         #region Propirties
         public string Email
@@ -33,8 +42,9 @@ namespace HTI.ViewModels
         #region Constructors
         public LoginViewModel()
         {
-            Email = "muo.cpp@gmail.com";
-            Password = "92325922";
+            _database = DependencyService.Get<ISQLiteDb>().GetConnection();
+            var users_db =  _database.Table<Student>().ToListAsync();
+            users = users_db;
         }
         #endregion
         #region Commands
@@ -45,8 +55,23 @@ namespace HTI.ViewModels
         #region Methods
         private async void Login()
         {
+            var user = users.Result.Where(u => u.Email == Email).SingleOrDefault();
+            if (user == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The user doesn't exisit please check the email", "Accept");
+                Email = "";
+                Password = "";
+                return;
+            }
+            if (user.Password != Password)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The password is incorrect", "Accept");
+                Email = "";
+                Password = "";
+                return;
+            }
             MainViewModel.StaticMainView().Home = new HomeViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new HomeView());
+            await Application.Current.MainPage.Navigation.PushAsync(new MasterView());
         }
         private async void Register()
         {

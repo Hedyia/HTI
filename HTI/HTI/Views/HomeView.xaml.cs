@@ -13,7 +13,7 @@ namespace HTI.Views
         public HomeView ()
 		{
 			InitializeComponent ();
-            picker.Title = "Courses List...";
+            
 		}
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -23,12 +23,5 @@ namespace HTI.Views
             homeViewModel.SelectCourse(course);
         }
 
-        private void Picker_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            var course = picker.SelectedItem as Course;
-            var homeViewModel = new HomeViewModel();
-            
-            homeViewModel.SelectCourse(course);
-        }
     }
 }

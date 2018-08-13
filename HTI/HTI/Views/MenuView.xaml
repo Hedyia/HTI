@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Title="HTI"
+             BackgroundColor="{StaticResource FontColor}"
              x:Class="HTI.Views.MenuView">
     <ContentPage.Content>
         <StackLayout
@@ -9,7 +11,7 @@
             <Label
                 FontAttributes="Bold"
                 FontSize="Large"
-                Text="Products"
+                Text="HTI"
                 TextColor="{StaticResource BackgroundColor}">
             </Label>
             <ListView 
@@ -21,6 +23,9 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}" />
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>

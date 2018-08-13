@@ -5,12 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\electronics2.pdf" />
+    <None Remove="Assets\inf.pdf" />
+    <None Remove="Assets\softwareengineering.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\electronics2.pdf" />
+    <EmbeddedResource Include="Assets\inf.pdf" />
     <EmbeddedResource Include="Assets\softwareengineering.pdf" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
     <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="16.2.0.42" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="16.2.0.42" />
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="16.2.0.42" />
@@ -27,6 +36,9 @@
     <EmbeddedResource Update="Views\CourseDetailView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\CoursesSpecialist.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\EditCourseView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -40,6 +52,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MasterView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MenuView.xaml">

@@ -1,12 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HTI.Views.FavoritesView">
+             x:Class="HTI.Views.FavoritesView"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Title="Favoirates Courses">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{Binding Home}">
+            <ListView
+                
+                ItemsSource="{Binding FavCourses}"
+				SeparatorVisibility="None" 
+				HasUnevenRows="true"
+                ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="200">
+                            <ContentView Margin="10">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="5" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <BoxView Color="#3F51B5"
+										Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+
+                                    <Label Text="{Binding CourseId}" TextColor="White" 
+										FontSize="Large" VerticalTextAlignment="Center" Margin="10,0,0,0"
+										Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                                    <Image Aspect="AspectFill" Source="{Binding Image}"
+								    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+                                    <Label Text="{Binding CourseName}" TextColor="Black"
+                                           FontSize="Medium"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+								    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+                                    <BoxView Color="#757575" Opacity=".25"
+								    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+
+                                    <BoxView Color="#16CA86"
+								    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" />
+
+                                    <BoxView Color="#F6F6F6"
+								    Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" />
+
+                                    <Label Text="{Binding ProfName, StringFormat='Dr: {0}'}" Margin="10,5,0,0" 
+								    FontSize="Small" TextColor="#757575"
+								    Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" />
+
+
+                                    <Label Text="{Binding Units, StringFormat='{0} units'}" Margin="0,5,0,0" 
+								    FontSize="Small" TextColor="#757575"
+								    Grid.Row="3" Grid.Column="2" />
+
+                                    <Label Text="View Course >" Font="Micro" HorizontalTextAlignment="End" 
+								    Margin="0,5,10,0" TextColor="#4CAF50" FontAttributes="Bold"
+								    Grid.Row="4" Grid.Column="2" />
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

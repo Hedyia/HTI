@@ -8,7 +8,9 @@ namespace HTI
 {
 	public partial class App : Application
 	{
-		public App ()
+        public static NavigationPage Navigator { get; internal set; }
+
+        public App ()
 		{
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("key");
             InitializeComponent();

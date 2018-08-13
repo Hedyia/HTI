@@ -10,6 +10,8 @@ namespace HTI.Models
     {
         IT,
         CS,
-        IS
+        IS,
+        BSC,
+        ALL
     }
 }

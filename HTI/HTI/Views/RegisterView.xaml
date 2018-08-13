@@ -5,26 +5,24 @@
              BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              Title="Registration">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="5"
+                      BindingContext="{Binding Registration}">
             <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="First Name"></Entry>
-                <Entry Placeholder="Last Name"></Entry>
+                <Entry Placeholder="First Name" Text="{Binding Student.FirstName}" />
+                <Entry Placeholder="Last Name" Text="{Binding Student.LastName}" />
             </StackLayout>
-            <Entry Placeholder="Email"></Entry>
-            <Entry Placeholder="Password" IsPassword="True"></Entry>
-            <Entry Placeholder="Confirm Password" IsPassword="True"></Entry>
-            <Label Text="Date Of Birth"></Label>
-            <DatePicker></DatePicker>
-            <Label Text="Address"></Label>
-            <Editor></Editor>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Save Password"></Label>
-                <Switch IsToggled="False"></Switch>
-            </StackLayout>
+            <Entry Placeholder="Email" Text="{Binding Student.Email}"/>
+            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Student.Password}" />
+            <Entry Placeholder="Confirm Password" IsPassword="True" Text="{Binding Student.ConfirmPassword}" />
+            <Picker
+                 ItemsSource="{Binding Specialist}" 
+                 ItemDisplayBinding="{Binding Name}" 
+                 SelectedItem="{Binding Student.StudentSpecialist}"
+                Title="Department..."/>
             <Button Text="Sign Up"
                     TextColor="White"
-                    BackgroundColor="Purple"></Button>
-            <Label Text="Already have account? Sign In" TextColor="Blue"></Label>
+                    BackgroundColor="Purple"
+                    Command="{Binding AddStudentCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,31 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
              x:Class="HTI.Views.HomeView"
              BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              BackgroundColor="{StaticResource WhiteColor}"
              Title="Home">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Home}">
-            <SearchBar
-                Placeholder="Search..."
-                Text="{Binding Filter}"
-                SearchCommand="{Binding SearchCommand}"
-                BackgroundColor="White"
-                TextColor="Black">
-            </SearchBar>
-            <Picker
-                x:Name="picker"
-                ItemsSource="{Binding Courses}"
-                 ItemDisplayBinding="{Binding CourseName}"
-                    
-                    SelectedIndexChanged="Picker_SelectedIndexChanged"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="CenterAndExpand">
-            </Picker>
-            <!--<ListView
-                
+
+                <SearchBar
+                      Placeholder="Search..."
+                      Text="{Binding Filter}"
+                      SearchCommand="{Binding SearchCommand}"
+                      BackgroundColor="White"
+                      TextColor="Black"
+                      Grid.Column="0">
+                </SearchBar>
+
+            <ListView
+                x:Name="lstCourses"
                 ItemsSource="{Binding Courses}"
 				SeparatorVisibility="None" 
 				HasUnevenRows="true"
@@ -57,7 +50,11 @@
 
                                     <Image Aspect="AspectFill" Source="{Binding Image}"
 								    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
-
+                                    <Label Text="{Binding CourseName}" TextColor="Black"
+                                           FontSize="Medium"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+								    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
                                     <BoxView Color="#757575" Opacity=".25"
 								    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
 
@@ -84,7 +81,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>-->
+            </ListView>
 
         </StackLayout>
     </ContentPage.Content>
